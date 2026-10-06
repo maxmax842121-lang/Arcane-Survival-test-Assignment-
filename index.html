@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Arcane Survivor</title>
+
+  <!-- Heading font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Game styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- The game is drawn on this canvas -->
+  <canvas id="game"></canvas>
+
+  <!-- HUD: XP bar, level, timer, kills, pause button -->
+  <div id="hud" class="hidden">
+    <div id="xpbar">
+      <div id="xpfill"></div>
+    </div>
+    <div id="row">
+      <div id="lvl">Lv 1</div>
+      <div id="time">00:00</div>
+      <div id="right">
+        <div id="kills">☠ 0</div>
+        <button id="pauseBtn" aria-label="Pause">❚❚</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Touch joystick (shows when you drag on a phone) -->
+  <div id="joy">
+    <div id="knob"></div>
+  </div>
+
+  <!-- Start screen -->
+  <div id="startScreen" class="overlay">
+    <div class="panel">
+      <h1>Arcane Survivor</h1>
+      <p>The shadows never stop coming. Your spells cast themselves, so all you have to do is move and stay alive.</p>
+      <p>Drag anywhere to move on a phone, or use WASD / arrow keys. Collect blue crystals to level up and pick a new spell. Every spell maxes out at level 5.</p>
+      <p id="bestStart"></p>
+      <button class="btn" id="startBtn">Start game</button>
+    </div>
+  </div>
+
+  <!-- Level up menu -->
+  <div id="levelUp" class="overlay hidden">
+    <div class="panel">
+      <h2>Level up</h2>
+      <p style="margin:0">Choose one</p>
+      <div id="cards"></div>
+    </div>
+  </div>
+
+  <!-- Pause menu -->
+  <div id="pauseMenu" class="overlay hidden">
+    <div class="panel">
+      <h2>Paused</h2>
+      <div class="stats">
+        <div><b id="pTime">0:00</b><span>Time</span></div>
+        <div><b id="pLvl">1</b><span>Level</span></div>
+        <div><b id="pKills">0</b><span>Kills</span></div>
+      </div>
+      <div id="skillList"></div>
+      <button class="btn" id="resumeBtn">Resume</button>
+      <button class="btn ghost" id="restartBtn">Restart</button>
+    </div>
+  </div>
+
+  <!-- Game over screen -->
+  <div id="gameOver" class="overlay hidden">
+    <div class="panel">
+      <h2>You have fallen</h2>
+      <div class="stats">
+        <div><b id="gTime">0:00</b><span>Survived</span></div>
+        <div><b id="gLvl">1</b><span>Level</span></div>
+        <div><b id="gKills">0</b><span>Kills</span></div>
+      </div>
+      <p id="gBest"></p>
+      <button class="btn" id="againBtn">Restart</button>
+    </div>
+  </div>
+
+  <!-- Game logic -->
+  <script src="script.js"></script>
+</body>
+</html>
